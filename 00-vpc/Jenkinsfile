@@ -11,7 +11,7 @@ pipeline {
 //         DEBUG = 'true'
 //     }
     parameters {
-        choice(name: 'CHOICE', 'ACTION': ['apply', 'destroy'], description: 'Select action')
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select Action')
     }
     stages {
         stage('Init') {
