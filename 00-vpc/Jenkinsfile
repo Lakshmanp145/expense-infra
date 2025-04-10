@@ -14,7 +14,7 @@ pipeline {
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select Action')
     }
     stages {
-        stage('Init') {
+        stage('Init and Plan') {
             steps { 
                   withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                        sh """
@@ -23,6 +23,12 @@ pipeline {
                             terraform plan -out=tfplan
                        """
                   }
+            }
+        stage('Apply or Destroy') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                }
             }
             steps { 
                   withAWS(region: 'us-east-1', credentials: 'aws-creds') {
