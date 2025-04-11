@@ -4,13 +4,13 @@ variable "project" {
 }
 
 variable "environment" {
-    default = "dev"
+    default = "prod"
 }
 
 variable "common_tags" {
     default = {
         project = "expense"
-        environment = "dev"
+        environment = "prod"
         terraform = "true"
     }
 }

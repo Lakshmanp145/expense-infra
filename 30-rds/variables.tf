@@ -1,6 +1,5 @@
 variable "project" {
     default = "expense"
-
 }
 
 variable "environment" {
@@ -13,4 +12,13 @@ variable "common_tags" {
         environment = "prod"
         terraform = "true"
     }
+}
+
+variable "domain_name" {
+    default = "lakshman.site"
+}
+
+
+variable "zone_id" {
+    default = "Z0297339GVFSCF3IFANY"
 }

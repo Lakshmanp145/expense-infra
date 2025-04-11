@@ -7,10 +7,10 @@ terraform {
     }
   }
    backend "s3" {
-    bucket = "laxman-tf-remote-state-dev"
-    key = "expense-dev-eks-eks"
+    bucket = "laxman-tf-remote-state-prod"
+    key = "expense-prod-eks"
     region = "us-east-1"
-    dynamodb_table = "laxman-tf-remote-state-dev"
+    dynamodb_table = "laxman-tf-remote-state-prod"
 
   }
 }
