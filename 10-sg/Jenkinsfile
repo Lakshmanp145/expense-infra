@@ -43,10 +43,15 @@ pipeline {
                         fi
                     """
                 }
+            }         
+        }
+        stage ('Destroy VPC') {
+            when {
+                expression { params.ACTION == 'destroy' }
             }
-            stage ('trigger SG') {
-                  build job: '10-sg', parameters: [[$class: 'choiceParameterValue', name: 'ACTION', value: 'apply']]
-}                       
+            steps{
+                build job: '00-vpc', parameters: [string(name: 'ACTION', value: "destroy")], wait: false
+            }
         }         
     }
     post { 
