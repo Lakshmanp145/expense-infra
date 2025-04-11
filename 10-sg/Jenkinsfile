@@ -56,7 +56,7 @@ pipeline {
         stage('Parallel') {
             when {
                 expression { params.ACTION == 'apply' }
-            
+            }
             parallel {
                 stage('Bastion') {
                     steps {
